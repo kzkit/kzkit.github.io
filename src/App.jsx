@@ -111,6 +111,7 @@ function App() {
                   alt="Matcha menu bar interface"
                   style={{
                     maxWidth: "450px",
+                    width: "100%",
                     height: "auto",
                     border: "1px solid rgba(0,0,0,0.1)",
                     borderRadius: "4px",
@@ -121,6 +122,7 @@ function App() {
                   alt="Matcha settings window"
                   style={{
                     maxWidth: "350px",
+                    width: "100%",
                     height: "auto",
                     border: "1px solid rgba(0,0,0,0.1)",
                     borderRadius: "4px",
@@ -144,7 +146,7 @@ function App() {
             opacity: 0.6,
           }}
         >
-          <div>© 2026 ZHEN K. // ALL RIGHTS RESERVED</div>
+          <div>© 2026 ZHENKITKONG // ALL RIGHTS RESERVED</div>
         </footer>
       </main>
     </>
