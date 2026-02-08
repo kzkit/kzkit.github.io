@@ -80,31 +80,21 @@ function App() {
                     margin: 0,
                   }}
                 >
-                  matcha 🍵
+                  matcha 🍵 (mac OS)
                 </h2>
-                <span
-                  style={{
-                    fontFamily: "GeistPixelGrid",
-                    fontSize: "0.75rem",
-                    opacity: 0.6,
-                  }}
-                >
-                  macos // 2026
-                </span>
               </div>
 
               <p
                 style={{
                   fontFamily: "GeistPixelSquare",
                   fontSize: "1rem",
-                  maxWidth: "600px",
                   marginBottom: "30px",
                   lineHeight: "1.5",
                   opacity: 0.9,
                 }}
               >
                 keeps your mac awake. timer-based, schedule-aware, or
-                app-triggered. lives in the menu bar. does one thing well.
+                app-triggered. lightweight. written in swift.
               </p>
 
               {/* Screenshots Grid */}
@@ -154,7 +144,6 @@ function App() {
             opacity: 0.6,
           }}
         >
-          <div>COORD: 3.1575°, 101.7117°</div>
           <div>© 2026 ZHEN K. // ALL RIGHTS RESERVED</div>
         </footer>
       </main>
