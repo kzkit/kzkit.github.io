@@ -117,7 +117,7 @@ function App() {
                 }}
               >
                 <img
-                  src="/src/assets/asset b.jpeg"
+                  src="/matcha-settings.jpeg"
                   alt="Matcha menu bar interface"
                   style={{
                     maxWidth: "450px",
@@ -127,7 +127,7 @@ function App() {
                   }}
                 />
                 <img
-                  src="/src/assets/asset a.jpeg"
+                  src="/matcha-menu.jpeg"
                   alt="Matcha settings window"
                   style={{
                     maxWidth: "350px",
