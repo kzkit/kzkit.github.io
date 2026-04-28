@@ -7,7 +7,7 @@ const projects = [
     meta: "macOS utility",
     image: "/wakey-icon.png",
     description:
-      "Keeps your Mac awake with timers, schedules, and app-aware triggers. Built to be quiet, fast, and easy to trust.",
+      "Smart triggers and custom schedules to keep your Mac awake when you need it. Fast, lightweight, and built in Swift.",
     accent: "foil-wakey",
   },
 ];
