@@ -1,91 +1,71 @@
-/* Global Resets */
-:root {
-  font-family: 'GeistPixelSquare', monospace;
-  background-color: #ffffff;
-  color: #000000;
-  line-height: 1.5;
-  font-weight: 400;
+@font-face {
+  font-family: "Geist Sans";
+  src: url("../node_modules/geist/dist/fonts/geist-sans/Geist-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
 
+:root {
+  --paper: #080808;
+  --paper-warm: #0b0b0b;
+  --ink: #f4f4f1;
+  --muted: rgba(244, 244, 241, 0.58);
+  --accent: #d8d8d2;
+  --line: rgba(244, 244, 241, 0.16);
+  --line-soft: rgba(244, 244, 241, 0.08);
+  --grid-color: rgba(244, 244, 241, 0.08);
+  --grid-size: 120px;
+  --card-ink: #181613;
+  --card-muted: rgba(24, 22, 19, 0.58);
+  --card-paper: #fffdf4;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: "Geist Sans", Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 440;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  /* Grid Variables */
-  --grid-color: rgba(0, 0, 0, 0.05);
-  --grid-size: 40px;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  min-width: 320px;
-  min-height: 100vh;
-  overflow-x: hidden;
-  background-image:
-    linear-gradient(var(--grid-color) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
-  background-size: var(--grid-size) var(--grid-size);
-  background-position: center top;
-}
-
-/* Font Face Definitions */
-@font-face {
-  font-family: 'GeistPixelSquare';
-  src: url('/fonts/GeistPixel-Square.woff2') format('woff2');
-  font-weight: 500;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'GeistPixelGrid';
-  src: url('/fonts/GeistPixel-Grid.woff2') format('woff2');
-  font-weight: 500;
-  font-style: normal;
-}
-
-/* Utilities */
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  min-height: 100vh;
-  pointer-events: none;
-  z-index: 10;
-  display: flex;
-  flex-direction: column;
-  padding: 40px;
+* {
   box-sizing: border-box;
 }
 
-/* Make sure interactive children can be clicked */
-.overlay > * {
-  pointer-events: auto;
+html {
+  scroll-behavior: smooth;
 }
 
-button {
-  font-family: 'GeistPixelSquare', monospace;
-  background: white;
-  color: black;
-  border: 1px solid black;
-  padding: 10px 20px;
-  cursor: pointer;
-  text-transform: uppercase;
-  font-size: 0.9rem;
-  transition: all 0.2s ease;
-}
-
-button:hover {
-  background: black;
-  color: white;
-}
-
-h1,
-h2,
-h3 {
+body {
+  min-width: 320px;
+  min-height: 100dvh;
   margin: 0;
-  font-weight: normal;
+  overflow-x: hidden;
+  background:
+    linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px),
+    linear-gradient(180deg, var(--paper), var(--paper-warm));
+  background-size:
+    var(--grid-size) var(--grid-size),
+    var(--grid-size) var(--grid-size),
+    100% 100%;
+  background-position: center top;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0.12;
+  background-image:
+    radial-gradient(circle at 25% 18%, rgba(255, 255, 255, 0.04) 0 1px, transparent 1px),
+    radial-gradient(circle at 74% 58%, rgba(255, 255, 255, 0.025) 0 1px, transparent 1px);
+  background-size: 38px 38px, 54px 54px;
+  mix-blend-mode: screen;
 }
 
 a {
@@ -93,7 +73,20 @@ a {
   text-decoration: none;
 }
 
+a:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 4px;
+}
+
+h1,
+h2,
+h3,
+p,
+dl {
+  margin-block-start: 0;
+}
+
 ::selection {
-  background: #000;
-  color: #fff;
+  background: var(--ink);
+  color: var(--paper);
 }

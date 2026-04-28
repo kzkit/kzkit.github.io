@@ -10,8 +10,8 @@ const CursorEffect = () => {
 
     // Configuration
     const gridSize = 40; // Pixel size of grid cells
-    const gridColor = "rgba(0, 0, 0, 0.05)";
-    const highlightColor = "rgba(0, 0, 0, 0.1)";
+    const gridColor = "rgba(244, 244, 241, 0.08)";
+    const highlightColor = "rgba(244, 244, 241, 0.12)";
 
     let mouseX = -100;
     let mouseY = -100;
@@ -58,10 +58,10 @@ const CursorEffect = () => {
           if (i === hoveredCol && j === hoveredRow) {
             ctx.fillStyle = highlightColor;
             ctx.fill();
-            ctx.strokeStyle = "#000000"; // Brighter border for active cell
+            ctx.strokeStyle = "rgba(244, 244, 241, 0.24)";
           } else if (i === hoveredCol || j === hoveredRow) {
             // Optional: Highlight entire row/col slightly
-            ctx.fillStyle = "rgba(0, 0, 0, 0.02)";
+            ctx.fillStyle = "rgba(244, 244, 241, 0.035)";
             ctx.fill();
             ctx.strokeStyle = gridColor;
           } else {

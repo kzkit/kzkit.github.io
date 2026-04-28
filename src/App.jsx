@@ -1,155 +1,94 @@
-import React from "react";
-import CursorEffect from "./components/CursorEffect";
+import { motion as Motion } from "framer-motion";
+import "./App.css";
+
+const projects = [
+  {
+    name: "Wakey",
+    meta: "macOS utility",
+    image: "/wakey-icon.png",
+    description:
+      "Keeps your Mac awake with timers, schedules, and app-aware triggers. Built to be quiet, fast, and easy to trust.",
+    accent: "foil-wakey",
+  },
+];
+
+function ProjectCard({ project }) {
+  return (
+    <Motion.article
+      className={`project-card ${project.accent}`}
+      tabIndex={0}
+      aria-labelledby={`${project.name}-title`}
+      initial={{ opacity: 0, y: 22 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.35 }}
+      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+    >
+      <div className="card-foil" aria-hidden="true" />
+      <div className="card-glare" aria-hidden="true" />
+
+      <div className="card-frame">
+        <div className="card-topline">
+          <span>{project.meta}</span>
+        </div>
+
+        <div className="card-art" aria-hidden="true">
+          <img src={project.image} alt="" />
+        </div>
+
+        <div className="card-copy">
+          <div>
+            <h3 id={`${project.name}-title`}>{project.name}</h3>
+          </div>
+          <p>{project.description}</p>
+        </div>
+      </div>
+    </Motion.article>
+  );
+}
 
 function App() {
   return (
-    <>
-      <CursorEffect />
-      <main className="overlay">
-        {/* Main Grid Content */}
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(12, 1fr)",
-            gap: "20px",
-            width: "100%",
-            height: "100%",
-          }}
-        >
-          {/* Hero Section */}
-          <div style={{ gridColumn: "span 12", marginBottom: "40px" }}>
-            <h1
-              style={{
-                fontSize: "clamp(3rem, 15vw, 12rem)",
-                fontFamily: "GeistPixelGrid",
-                lineHeight: "0.8",
-                letterSpacing: "-0.04em",
-                textTransform: "lowercase",
-                wordBreak: "break-word",
-              }}
-            >
+    <main className="site-shell">
+      <a className="skip-link" href="#projects">
+        skip to projects
+      </a>
+
+      <nav className="site-nav" aria-label="Primary navigation">
+        <a href="#home" aria-label="Go to the top of the homepage">
+          zkk
+        </a>
+        <a href="#projects">projects</a>
+        <a href="https://www.linkedin.com/in/kzkit/" target="_blank">contact</a>
+      </nav>
+
+      <section className="hero-section" id="home" aria-labelledby="hero-title">
+        <div className="hero-layout">
+          <div className="hero-copy">
+            <h1 id="hero-title">
               Zhen Kit
               <br />
-              Kong<span style={{ color: "#d68316ff" }}>_</span>
+              Kong
             </h1>
           </div>
+        </div>
+      </section>
 
-          {/* Left Column - Details */}
-          <div style={{ gridColumn: "span 12" }}>
-            <p
-              style={{
-                fontFamily: "GeistPixelSquare",
-                fontSize: "1.25rem",
-                maxWidth: "400px",
-                marginBottom: "40px",
-                lineHeight: "1.4",
-              }}
-            >
-              just building things i use
-            </p>
-          </div>
-
-          {/* Projects Section */}
-          <div
-            style={{
-              gridColumn: "1 / -1",
-              marginTop: "60px",
-            }}
-          >
-            {/* Project: Matcha */}
-            <div
-              style={{
-                borderTop: "1px solid black",
-                paddingTop: "20px",
-                marginBottom: "40px",
-              }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "baseline",
-                  marginBottom: "20px",
-                }}
-              >
-                <h2
-                  style={{
-                    fontFamily: "GeistPixelSquare",
-                    fontSize: "2rem",
-                    textTransform: "lowercase",
-                    margin: 0,
-                  }}
-                >
-                  matcha 🍵 (mac OS)
-                </h2>
-              </div>
-
-              <p
-                style={{
-                  fontFamily: "GeistPixelSquare",
-                  fontSize: "1rem",
-                  marginBottom: "30px",
-                  lineHeight: "1.5",
-                  opacity: 0.9,
-                }}
-              >
-                keeps your mac awake. timer-based, schedule-aware, or
-                app-triggered. lightweight. written in swift.
-              </p>
-
-              {/* Screenshots Grid */}
-              <div
-                style={{
-                  display: "flex",
-                  gap: "15px",
-                  marginTop: "20px",
-                  flexWrap: "wrap",
-                }}
-              >
-                <img
-                  src="/matcha-settings.jpeg"
-                  alt="Matcha menu bar interface"
-                  style={{
-                    maxWidth: "450px",
-                    width: "100%",
-                    height: "auto",
-                    border: "1px solid rgba(0,0,0,0.1)",
-                    borderRadius: "4px",
-                  }}
-                />
-                <img
-                  src="/matcha-menu.jpeg"
-                  alt="Matcha settings window"
-                  style={{
-                    maxWidth: "350px",
-                    width: "100%",
-                    height: "auto",
-                    border: "1px solid rgba(0,0,0,0.1)",
-                    borderRadius: "4px",
-                  }}
-                />
-              </div>
-            </div>
-          </div>
+      <section className="projects-section" id="projects" aria-labelledby="projects-title">
+        <div className="section-heading">
+          <h2 id="projects-title">building tools i use</h2>
         </div>
 
-        {/* Footer */}
-        <footer
-          style={{
-            marginTop: "auto",
-            display: "flex",
-            justifyContent: "space-between",
-            borderTop: "1px solid black",
-            paddingTop: "10px",
-            fontFamily: "GeistPixelGrid",
-            fontSize: "0.75rem",
-            opacity: 0.6,
-          }}
-        >
-          <div>© 2026 ZHENKITKONG // ALL RIGHTS RESERVED</div>
-        </footer>
-      </main>
-    </>
+        <div className="project-grid">
+          {projects.map((project) => (
+            <ProjectCard project={project} key={project.name} />
+          ))}
+        </div>
+      </section>
+
+      <footer className="site-footer">
+        <span>copyright 2026 Zhen Kit Kong</span>
+      </footer>
+    </main>
   );
 }
 
